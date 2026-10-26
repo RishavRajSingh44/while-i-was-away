@@ -1,6 +1,6 @@
 # Local release readiness — October 26, 2026
 
-**Status:** standalone source package prepared and clean-installed locally. No push, deployment, domain connection or contest submission occurred. The contest entry deadline passed before publication.
+**Status:** standalone source package prepared and clean-installed locally. The [independent application repository](https://github.com/RishavRajSingh44/while-i-was-away) and [synthetic video](https://player.mux.com/728fJk3p6UEeTYeO9qVt9AOOPg2EOXTw9K01bwt002Faw) are public. No deployment, domain connection or contest submission occurred. The contest entry deadline passed before publication.
 
 ## What changed in this pass
 
@@ -16,7 +16,7 @@
 | Live local | Gemma 3 4B inference on synthetic Git, four synthetic PRs and a synthetic transcript; 39.605 s, cited output saved in [gemma-run.json](evidence/gemma-run.json). Clean extracted development and production servers returned HTTP 200. Authenticated GitHub sync normalized 23 actual merged PRs. |
 | Fixture / contract | 73 backend tests, 11 frontend tests, all four PR states and pagination, Codex/Claude formats, Entire refs, queue recovery, security boundaries, handoff and browser demo flows. |
 | Experimental | Entire native import has no actual-tool-produced checkpoint test. Codex/Claude native formats have no individually selected, consented real-file check in this release pass. |
-| External / unverified | GitHub Actions remote run, Render deployment, `.tech` domain, Windows/Linux UI, and general model accuracy/performance. |
+| External / unverified | The first GitHub Actions run failed only the static-demo browser step; workflow fix awaits a remote rerun. Render deployment, `.tech` domain, Windows/Linux UI, and general model accuracy/performance remain unverified. |
 
 The new Gemma run cites the latest selected user message for the action. Manual comparison confirms the requested regression and failed global-clear approach appear in that excerpt. It still places the historical goal in “What changed,” even though that citation does not establish an event in the observation window. This is a known semantic limit: evidence IDs prove traceability, not full claim entailment or ideal section placement. Review the briefing and source drawer before acting.
 
@@ -43,7 +43,6 @@ The two launch commands were run separately. Production served the built `/` and
 
 ## Public release steps remaining
 
-1. Review the archive, screenshots, video, article and any desired public repository name. Add narration to the silent recording if publishing it.
-2. With explicit authorization, publish this independent source tree to its own repository and inspect actual GitHub Actions results. Do not publish the unrelated parent tree.
-3. If a hosted preview is desired, deploy only the static `dist-demo` Render configuration, inspect its network traffic and labels, then add the real URL to the article. Connect a `.tech` domain only if one is available and authorized.
-4. Replace article URL placeholders with actual code/demo links. Present it as a completed project inspired by Slow and Steady, with the missed contest deadline plainly stated.
+1. Verify the corrected GitHub Actions run. Review the archive and article once more; narration remains optional for the silent recording.
+2. If a hosted preview is desired, deploy only the static `dist-demo` Render configuration, inspect its network traffic and labels, then add the real URL to the article. Connect a `.tech` domain only if one is available and authorized.
+3. Publish the DEV article only when requested. Present it as a completed project inspired by Slow and Steady, with the missed contest deadline plainly stated.

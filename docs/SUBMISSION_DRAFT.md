@@ -8,11 +8,11 @@ Challenge deadline: October 25, 2026, 11:59 PM PDT (October 26, 12:29 PM IST). T
 
 ## Demo
 
-**[Add actual Render static demo URL or uploaded recording URL after publication.]** The public demo uses original synthetic Git, PR and transcript fixtures and a precomputed synthetic briefing. Its replay is not live inference. The installed local app performs real Git collection, GitHub sync and Gemma synthesis. A [silent synthetic screen recording](demo/while-i-was-away-demo.webm), [narration script](DEMO_NARRATION.md), [screenshots](screenshots/) and a [75-second walkthrough](DEMO_SCRIPT.md) are prepared; review and upload the recording separately if publishing it.
+[Watch the uploaded synthetic demo](https://player.mux.com/728fJk3p6UEeTYeO9qVt9AOOPg2EOXTw9K01bwt002Faw). The public demo uses original synthetic Git, PR and transcript fixtures and a precomputed synthetic briefing. Its replay is not live inference. The installed local app performs real Git collection, GitHub sync and Gemma synthesis. A [local recording](demo/while-i-was-away-demo.webm), [narration script](DEMO_NARRATION.md), [screenshots](screenshots/) and a [75-second walkthrough](DEMO_SCRIPT.md) are prepared.
 
 ## Code
 
-**[Add public Git repository URL after explicit authorization and push.]** The code is MIT licensed; Gemma weights are obtained separately under [Gemma Terms of Use](https://ai.google.dev/gemma/terms). Local setup, tests and limits are in the [README](../README.md).
+The [public source repository](https://github.com/RishavRajSingh44/while-i-was-away) is MIT licensed; Gemma weights are obtained separately under [Gemma Terms of Use](https://ai.google.dev/gemma/terms). Local setup, tests and limits are in the [README](../README.md).
 
 ## How I Built It
 
@@ -26,6 +26,6 @@ Local open-weight inference gives me an inspectable prompt, a swappable model an
 
 ## Prize Categories
 
-The product uses Gemma 3 4B centrally. Entire checkpoint import is a first-class optional **experimental** source, tested against synthetic refs but not current Entire tooling. Because the deadline passed without submission, this article does **not claim prize eligibility**. Render has a prepared static demo Blueprint but no deployment URL. GitHub Actions have a workflow file but no remote run; the contest category is named **Best Use of GitHub Copilot**, and no Copilot contribution is claimed. ElevenLabs, Sentry Agent Tracing, Temporal and `.tech` have no completed evidence and are omitted. [Partner evidence](PARTNER_EVIDENCE.md) separates each verified and unverified integration.
+The product uses Gemma 3 4B centrally. Entire checkpoint import is a first-class optional **experimental** source, tested against synthetic refs but not current Entire tooling. Because the deadline passed without submission, this article does **not claim prize eligibility**. Render has a prepared static demo Blueprint but no deployment URL. GitHub Actions ran remotely, but the first run failed the public-demo browser step; a corrected workflow awaits verification. The contest category is named **Best Use of GitHub Copilot**, and no Copilot contribution is claimed. ElevenLabs, Sentry Agent Tracing, Temporal and `.tech` have no completed evidence and are omitted. [Partner evidence](PARTNER_EVIDENCE.md) separates each verified and unverified integration.
 
 The optional “My Agent Session” and “The Lazy Payoff” sections are omitted: no authorized public agent-session link or measured time-savings study exists. Do not fabricate either, or personal eligibility, user feedback or an on-time published entry.
