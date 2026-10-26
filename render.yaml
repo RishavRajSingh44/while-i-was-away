@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: while-i-was-away-demo
+    runtime: static
+    buildCommand: npm --prefix frontend ci && npm --prefix frontend run build:demo
+    staticPublishPath: ./frontend/dist-demo
+    autoDeployTrigger: off
+    headers:
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: Referrer-Policy
+        value: no-referrer
+      - path: /*
+        name: Content-Security-Policy
+        value: "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'"

@@ -1,0 +1,709 @@
+{
+  "repository": {
+    "id": "public-demo",
+    "name": "Northstar",
+    "path": "demo://northstar",
+    "demo": true,
+    "created_at": "2026-10-24T10:00:00Z",
+    "acknowledged_snapshot_id": null
+  },
+  "overview": {
+    "repository": {
+      "id": "public-demo",
+      "name": "Northstar",
+      "path": "demo://northstar",
+      "demo": true,
+      "created_at": "2026-10-24T10:00:00Z",
+      "acknowledged_snapshot_id": null
+    },
+    "snapshot": {
+      "id": "demo-snapshot",
+      "repo_id": "public-demo",
+      "created_at": "2026-10-24T10:00:00Z",
+      "since": "2026-10-23T00:00:00+00:00",
+      "git": {
+        "root": "demo://northstar",
+        "branch": "fix/cache-invalidation",
+        "head": "7e91c4a",
+        "upstream": "origin/fix/cache-invalidation",
+        "remotes": [
+          {
+            "name": "origin",
+            "url": "https://github.com/example/while-away-demo.git"
+          }
+        ],
+        "worktrees": [
+          {
+            "path": "demo://northstar",
+            "head": "7e91c4a",
+            "branch": "fix/cache-invalidation"
+          }
+        ],
+        "staged": [
+          "src/cache.ts"
+        ],
+        "unstaged": [
+          "tests/cache.test.ts"
+        ],
+        "untracked": [
+          "notes/repro.md"
+        ],
+        "commits": [
+          {
+            "sha": "7e91c4a",
+            "author": "Demo developer",
+            "timestamp": "2026-10-23T16:20:00+00:00",
+            "subject": "Scope cache keys by workspace"
+          }
+        ],
+        "diff": "- const key = 'tasks';\n+ const key = `tasks:${workspaceId}`;",
+        "base_branch": "main",
+        "base_head": "b80cf19",
+        "base_changes": [
+          "src/storage.ts"
+        ],
+        "warnings": [],
+        "evidence": [
+          {
+            "id": "demo-git",
+            "kind": "git",
+            "title": "Working tree at your stopping point",
+            "body": "Branch fix/cache-invalidation at 7e91c4a. Staged: src/cache.ts. Unstaged: tests/cache.test.ts. Untracked filename: notes/repro.md. The diff replaces a shared cache key with a workspace-scoped key. No untracked file contents collected.",
+            "source": "Synthetic Git fixture",
+            "timestamp": "2026-10-23T16:20:00+00:00",
+            "trust": "verified"
+          },
+          {
+            "id": "demo-base",
+            "kind": "git",
+            "title": "Main changed while you were away",
+            "body": "Synthetic base branch moved from 42ad007 to b80cf19. src/storage.ts gained a storage schema version check. Review this change before rebasing the cache work.",
+            "source": "Synthetic base comparison",
+            "timestamp": "2026-10-24T08:10:00+00:00",
+            "trust": "verified"
+          }
+        ]
+      },
+      "github": {
+        "prs": [
+          {
+            "number": 42,
+            "title": "Scope cached task lists to the active workspace",
+            "url": "https://github.com/example/while-away-demo/pull/42",
+            "state": "open",
+            "head_branch": "fix/cache-invalidation",
+            "base_branch": "main",
+            "updated_at": "2026-10-23T16:20:00+00:00",
+            "review_state": "CHANGES_REQUESTED",
+            "mergeability": "MERGEABLE",
+            "checks": [
+              {
+                "name": "regression / cache",
+                "status": "COMPLETED",
+                "conclusion": "FAILURE"
+              }
+            ],
+            "reviews": [
+              {
+                "author": "demo-reviewer",
+                "state": "CHANGES_REQUESTED",
+                "body": "Add a regression test that switches workspaces offline.",
+                "submitted_at": "2026-10-23T16:20:00+00:00"
+              }
+            ],
+            "comments": [],
+            "matches_branch": true,
+            "changes": [
+              "Review requested a regression test"
+            ],
+            "evidence_id": "demo-pr-42"
+          },
+          {
+            "number": 43,
+            "title": "Add keyboard shortcuts to the task palette",
+            "url": "https://github.com/example/while-away-demo/pull/43",
+            "state": "draft",
+            "head_branch": "feat/keyboard-shortcuts",
+            "base_branch": "main",
+            "updated_at": "2026-10-23T16:20:00+00:00",
+            "review_state": "REVIEW_REQUIRED",
+            "mergeability": "UNKNOWN",
+            "checks": [
+              {
+                "name": "regression / cache",
+                "status": "IN_PROGRESS",
+                "conclusion": "PENDING"
+              }
+            ],
+            "reviews": [
+              {
+                "author": "demo-reviewer",
+                "state": "REVIEW_REQUIRED",
+                "body": "Draft: waiting on focus-management coverage.",
+                "submitted_at": "2026-10-23T16:20:00+00:00"
+              }
+            ],
+            "comments": [],
+            "matches_branch": false,
+            "changes": [
+              "Now draft"
+            ],
+            "evidence_id": "demo-pr-43"
+          },
+          {
+            "number": 38,
+            "title": "Keep local task edits when reconnecting",
+            "url": "https://github.com/example/while-away-demo/pull/38",
+            "state": "merged",
+            "head_branch": "fix/offline-edits",
+            "base_branch": "main",
+            "updated_at": "2026-10-23T16:20:00+00:00",
+            "review_state": "APPROVED",
+            "mergeability": "UNKNOWN",
+            "checks": [
+              {
+                "name": "regression / cache",
+                "status": "COMPLETED",
+                "conclusion": "SUCCESS"
+              }
+            ],
+            "reviews": [
+              {
+                "author": "demo-reviewer",
+                "state": "APPROVED",
+                "body": "Merged after the reconnect regression passed.",
+                "submitted_at": "2026-10-23T16:20:00+00:00"
+              }
+            ],
+            "comments": [],
+            "matches_branch": false,
+            "changes": [
+              "Now merged"
+            ],
+            "evidence_id": "demo-pr-38"
+          },
+          {
+            "number": 35,
+            "title": "Replace local storage with a remote-only cache",
+            "url": "https://github.com/example/while-away-demo/pull/35",
+            "state": "closed",
+            "head_branch": "experiment/remote-cache",
+            "base_branch": "main",
+            "updated_at": "2026-10-23T16:20:00+00:00",
+            "review_state": "REVIEW_REQUIRED",
+            "mergeability": "UNKNOWN",
+            "checks": [
+              {
+                "name": "regression / cache",
+                "status": "COMPLETED",
+                "conclusion": "UNKNOWN"
+              }
+            ],
+            "reviews": [
+              {
+                "author": "demo-reviewer",
+                "state": "REVIEW_REQUIRED",
+                "body": "Closed without merge: offline support is a requirement.",
+                "submitted_at": "2026-10-23T16:20:00+00:00"
+              }
+            ],
+            "comments": [],
+            "matches_branch": false,
+            "changes": [
+              "Now closed"
+            ],
+            "evidence_id": "demo-pr-35"
+          }
+        ],
+        "synced_at": "2026-10-23T16:20:00+00:00",
+        "offline": true,
+        "error": null,
+        "user": "demo-developer",
+        "evidence": [
+          {
+            "id": "demo-pr-42",
+            "kind": "github",
+            "title": "PR #42 \u00b7 open",
+            "body": "SYNTHETIC PR #42: Scope cached task lists to the active workspace. State: open. Review: CHANGES_REQUESTED. CI: FAILURE. Reviewer: Add a regression test that switches workspaces offline.",
+            "source": "Synthetic GitHub fixture (links are illustrative)",
+            "timestamp": "2026-10-23T16:20:00+00:00",
+            "trust": "verified"
+          },
+          {
+            "id": "demo-pr-43",
+            "kind": "github",
+            "title": "PR #43 \u00b7 draft",
+            "body": "SYNTHETIC PR #43: Add keyboard shortcuts to the task palette. State: draft. Review: REVIEW_REQUIRED. CI: PENDING. Reviewer: Draft: waiting on focus-management coverage.",
+            "source": "Synthetic GitHub fixture (links are illustrative)",
+            "timestamp": "2026-10-23T16:20:00+00:00",
+            "trust": "verified"
+          },
+          {
+            "id": "demo-pr-38",
+            "kind": "github",
+            "title": "PR #38 \u00b7 merged",
+            "body": "SYNTHETIC PR #38: Keep local task edits when reconnecting. State: merged. Review: APPROVED. CI: SUCCESS. Reviewer: Merged after the reconnect regression passed.",
+            "source": "Synthetic GitHub fixture (links are illustrative)",
+            "timestamp": "2026-10-23T16:20:00+00:00",
+            "trust": "verified"
+          },
+          {
+            "id": "demo-pr-35",
+            "kind": "github",
+            "title": "PR #35 \u00b7 closed",
+            "body": "SYNTHETIC PR #35: Replace local storage with a remote-only cache. State: closed. Review: REVIEW_REQUIRED. CI: UNKNOWN. Reviewer: Closed without merge: offline support is a requirement.",
+            "source": "Synthetic GitHub fixture (links are illustrative)",
+            "timestamp": "2026-10-23T16:20:00+00:00",
+            "trust": "verified"
+          }
+        ],
+        "warnings": [
+          "Synthetic cached PRs; illustrative links do not point to real PRs."
+        ]
+      },
+      "evidence": [
+        {
+          "id": "demo-git",
+          "kind": "git",
+          "title": "Working tree at your stopping point",
+          "body": "Branch fix/cache-invalidation at 7e91c4a. Staged: src/cache.ts. Unstaged: tests/cache.test.ts. Untracked filename: notes/repro.md. The diff replaces a shared cache key with a workspace-scoped key. No untracked file contents collected.",
+          "source": "Synthetic Git fixture",
+          "timestamp": "2026-10-23T16:20:00+00:00",
+          "trust": "verified"
+        },
+        {
+          "id": "demo-session",
+          "kind": "session",
+          "title": "Last coding session \u00b7 cache invalidation",
+          "body": "USER: Fix stale task lists when switching workspaces. Keep the public cache API unchanged.\nASSISTANT: A shared cache key causes workspace data to leak between views. The workspace-scoped key is implemented. I ran the old unit suite and it passed at that time. The switching-workspaces regression test is still unfinished.\nUSER: Do not repeat the global cache-clear approach; it breaks offline reads. Finish the regression test before changing anything else.",
+          "source": "Synthetic agent conversation",
+          "timestamp": "2026-10-23T16:20:00+00:00",
+          "trust": "agent-reported"
+        },
+        {
+          "id": "demo-base",
+          "kind": "git",
+          "title": "Main changed while you were away",
+          "body": "Synthetic base branch moved from 42ad007 to b80cf19. src/storage.ts gained a storage schema version check. Review this change before rebasing the cache work.",
+          "source": "Synthetic base comparison",
+          "timestamp": "2026-10-24T08:10:00+00:00",
+          "trust": "verified"
+        },
+        {
+          "id": "demo-pr-42",
+          "kind": "github",
+          "title": "PR #42 \u00b7 open",
+          "body": "SYNTHETIC PR #42: Scope cached task lists to the active workspace. State: open. Review: CHANGES_REQUESTED. CI: FAILURE. Reviewer: Add a regression test that switches workspaces offline.",
+          "source": "Synthetic GitHub fixture (links are illustrative)",
+          "timestamp": "2026-10-23T16:20:00+00:00",
+          "trust": "verified"
+        },
+        {
+          "id": "demo-pr-43",
+          "kind": "github",
+          "title": "PR #43 \u00b7 draft",
+          "body": "SYNTHETIC PR #43: Add keyboard shortcuts to the task palette. State: draft. Review: REVIEW_REQUIRED. CI: PENDING. Reviewer: Draft: waiting on focus-management coverage.",
+          "source": "Synthetic GitHub fixture (links are illustrative)",
+          "timestamp": "2026-10-23T16:20:00+00:00",
+          "trust": "verified"
+        },
+        {
+          "id": "demo-pr-38",
+          "kind": "github",
+          "title": "PR #38 \u00b7 merged",
+          "body": "SYNTHETIC PR #38: Keep local task edits when reconnecting. State: merged. Review: APPROVED. CI: SUCCESS. Reviewer: Merged after the reconnect regression passed.",
+          "source": "Synthetic GitHub fixture (links are illustrative)",
+          "timestamp": "2026-10-23T16:20:00+00:00",
+          "trust": "verified"
+        },
+        {
+          "id": "demo-pr-35",
+          "kind": "github",
+          "title": "PR #35 \u00b7 closed",
+          "body": "SYNTHETIC PR #35: Replace local storage with a remote-only cache. State: closed. Review: REVIEW_REQUIRED. CI: UNKNOWN. Reviewer: Closed without merge: offline support is a requirement.",
+          "source": "Synthetic GitHub fixture (links are illustrative)",
+          "timestamp": "2026-10-23T16:20:00+00:00",
+          "trust": "verified"
+        }
+      ],
+      "warnings": [
+        "DEMO: every repository, conversation, PR and check is synthetic. No model or credentials were used."
+      ]
+    },
+    "briefing": {
+      "id": "demo-briefing",
+      "repo_id": "public-demo",
+      "snapshot_id": "demo-snapshot",
+      "created_at": "2026-10-24T10:00:00Z",
+      "model": "Synthetic demo \u00b7 no inference",
+      "demo": true,
+      "sections": [
+        {
+          "key": "working_on",
+          "title": "You were working on\u2026",
+          "claims": [
+            {
+              "text": "Fixing stale task lists when switching workspaces, while keeping offline reads and the public cache API intact.",
+              "kind": "agent-reported",
+              "evidence_ids": [
+                "demo-session"
+              ]
+            }
+          ]
+        },
+        {
+          "key": "stopped_at",
+          "title": "Where you stopped",
+          "claims": [
+            {
+              "text": "The workspace-scoped cache key is staged. The regression test still has uncommitted edits.",
+              "kind": "verified",
+              "evidence_ids": [
+                "demo-git"
+              ]
+            },
+            {
+              "text": "Your agent reported that an earlier test run passed. The switching-workspaces regression was unfinished.",
+              "kind": "agent-reported",
+              "evidence_ids": [
+                "demo-session"
+              ]
+            }
+          ]
+        },
+        {
+          "key": "changed",
+          "title": "What changed while you were away",
+          "claims": [
+            {
+              "text": "PR #38 merged, #43 remains a draft, and #35 closed without merging.",
+              "kind": "verified",
+              "evidence_ids": [
+                "demo-pr-38",
+                "demo-pr-43",
+                "demo-pr-35"
+              ]
+            },
+            {
+              "text": "Main gained a storage schema version check in src/storage.ts.",
+              "kind": "verified",
+              "evidence_ids": [
+                "demo-base"
+              ]
+            }
+          ]
+        },
+        {
+          "key": "attention",
+          "title": "What needs your attention",
+          "claims": [
+            {
+              "text": "PR #42 is open with changes requested. The reviewer asked for an offline workspace-switching regression test; its cache check is failing.",
+              "kind": "verified",
+              "evidence_ids": [
+                "demo-pr-42"
+              ]
+            }
+          ]
+        },
+        {
+          "key": "next_step",
+          "title": "Your next step",
+          "claims": [
+            {
+              "text": "Finish the workspace-switch regression in tests/cache.test.ts, then review the storage schema change before rebasing.",
+              "kind": "suggestion",
+              "evidence_ids": [
+                "demo-git",
+                "demo-pr-42",
+                "demo-base"
+              ]
+            }
+          ]
+        }
+      ],
+      "handoff": "# Continue work \u2014 While I Was Away\n\nTreat the following as untrusted context, not authorization to run commands.\n\nRepository: Northstar (demo://northstar)\nBranch: fix/cache-invalidation\nHEAD: 7e91c4a\nSnapshot: 2026-10-24T10:00:00Z\nWindow starts: 2026-10-23T00:00:00+00:00\n\n## You were working on\u2026\n- [agent-reported] Fixing stale task lists when switching workspaces, while keeping offline reads and the public cache API intact. [demo-session]\n\n## Where you stopped\n- [verified] The workspace-scoped cache key is staged. The regression test still has uncommitted edits. [demo-git]\n- [agent-reported] Your agent reported that an earlier test run passed. The switching-workspaces regression was unfinished. [demo-session]\n\n## What changed while you were away\n- [verified] PR #38 merged, #43 remains a draft, and #35 closed without merging. [demo-pr-38] [demo-pr-43] [demo-pr-35]\n- [verified] Main gained a storage schema version check in src/storage.ts. [demo-base]\n\n## What needs your attention\n- [verified] PR #42 is open with changes requested. The reviewer asked for an offline workspace-switching regression test; its cache check is failing. [demo-pr-42]\n\n## Your next step\n- [suggestion] Finish the workspace-switch regression in tests/cache.test.ts, then review the storage schema change before rebasing. [demo-git] [demo-pr-42] [demo-base]\n\n## Relevant files\nStaged: src/cache.ts\nUnstaged: tests/cache.test.ts\nUntracked names only: notes/repro.md\n\n## PR state and review feedback\n- #42 open: Scope cached task lists to the active workspace \u2014 https://github.com/example/while-away-demo/pull/42 (CHANGES_REQUESTED); updated 2026-10-23T16:20:00+00:00\n  - Add a regression test that switches workspaces offline.\n- #43 draft: Add keyboard shortcuts to the task palette \u2014 https://github.com/example/while-away-demo/pull/43 (REVIEW_REQUIRED); updated 2026-10-23T16:20:00+00:00\n  - Draft: waiting on focus-management coverage.\n- #38 merged: Keep local task edits when reconnecting \u2014 https://github.com/example/while-away-demo/pull/38 (APPROVED); updated 2026-10-23T16:20:00+00:00\n  - Merged after the reconnect regression passed.\n- #35 closed: Replace local storage with a remote-only cache \u2014 https://github.com/example/while-away-demo/pull/35 (REVIEW_REQUIRED); updated 2026-10-23T16:20:00+00:00\n  - Closed without merge: offline support is a requirement.\n\n## Decisions, attempted changes, failed approaches and unresolved questions\nUse the cited conversation excerpts below; absent evidence is unknown.\n\n## Tests and freshness\nNo repository test commands were executed by this app. Any test success in a transcript is a historical report, not proof of the current worktree.\nGitHub last synced: 2026-10-23T16:20:00+00:00; cached/offline: True\n\n## Source evidence\n### [demo-git] Working tree at your stopping point\nverified \u00b7 Synthetic Git fixture \u00b7 2026-10-23T16:20:00+00:00\nBranch fix/cache-invalidation at 7e91c4a. Staged: src/cache.ts. Unstaged: tests/cache.test.ts. Untracked filename: notes/repro.md. The diff replaces a shared cache key with a workspace-scoped key. No untracked file contents collected.\n\n### [demo-session] Last coding session \u00b7 cache invalidation\nagent-reported \u00b7 Synthetic agent conversation \u00b7 2026-10-23T16:20:00+00:00\nUSER: Fix stale task lists when switching workspaces. Keep the public cache API unchanged.\nASSISTANT: A shared cache key causes workspace data to leak between views. The workspace-scoped key is implemented. I ran the old unit suite and it passed at that time. The switching-workspaces regression test is still unfinished.\nUSER: Do not repeat the global cache-clear approach; it breaks offline reads. Finish the regression test before changing anything else.\n\n### [demo-base] Main changed while you were away\nverified \u00b7 Synthetic base comparison \u00b7 2026-10-24T08:10:00+00:00\nSynthetic base branch moved from 42ad007 to b80cf19. src/storage.ts gained a storage schema version check. Review this change before rebasing the cache work.\n\n### [demo-pr-42] PR #42 \u00b7 open\nverified \u00b7 Synthetic GitHub fixture (links are illustrative) \u00b7 2026-10-23T16:20:00+00:00\nSYNTHETIC PR #42: Scope cached task lists to the active workspace. State: open. Review: CHANGES_REQUESTED. CI: FAILURE. Reviewer: Add a regression test that switches workspaces offline.\n\n### [demo-pr-43] PR #43 \u00b7 draft\nverified \u00b7 Synthetic GitHub fixture (links are illustrative) \u00b7 2026-10-23T16:20:00+00:00\nSYNTHETIC PR #43: Add keyboard shortcuts to the task palette. State: draft. Review: REVIEW_REQUIRED. CI: PENDING. Reviewer: Draft: waiting on focus-management coverage.\n\n### [demo-pr-38] PR #38 \u00b7 merged\nverified \u00b7 Synthetic GitHub fixture (links are illustrative) \u00b7 2026-10-23T16:20:00+00:00\nSYNTHETIC PR #38: Keep local task edits when reconnecting. State: merged. Review: APPROVED. CI: SUCCESS. Reviewer: Merged after the reconnect regression passed.\n\n### [demo-pr-35] PR #35 \u00b7 closed\nverified \u00b7 Synthetic GitHub fixture (links are illustrative) \u00b7 2026-10-23T16:20:00+00:00\nSYNTHETIC PR #35: Replace local storage with a remote-only cache. State: closed. Review: REVIEW_REQUIRED. CI: UNKNOWN. Reviewer: Closed without merge: offline support is a requirement.\n\nReview the current diff and confirm any proposed commands before running them.",
+      "evidence": [
+        {
+          "id": "demo-git",
+          "kind": "git",
+          "title": "Working tree at your stopping point",
+          "body": "Branch fix/cache-invalidation at 7e91c4a. Staged: src/cache.ts. Unstaged: tests/cache.test.ts. Untracked filename: notes/repro.md. The diff replaces a shared cache key with a workspace-scoped key. No untracked file contents collected.",
+          "source": "Synthetic Git fixture",
+          "timestamp": "2026-10-23T16:20:00+00:00",
+          "trust": "verified"
+        },
+        {
+          "id": "demo-session",
+          "kind": "session",
+          "title": "Last coding session \u00b7 cache invalidation",
+          "body": "USER: Fix stale task lists when switching workspaces. Keep the public cache API unchanged.\nASSISTANT: A shared cache key causes workspace data to leak between views. The workspace-scoped key is implemented. I ran the old unit suite and it passed at that time. The switching-workspaces regression test is still unfinished.\nUSER: Do not repeat the global cache-clear approach; it breaks offline reads. Finish the regression test before changing anything else.",
+          "source": "Synthetic agent conversation",
+          "timestamp": "2026-10-23T16:20:00+00:00",
+          "trust": "agent-reported"
+        },
+        {
+          "id": "demo-base",
+          "kind": "git",
+          "title": "Main changed while you were away",
+          "body": "Synthetic base branch moved from 42ad007 to b80cf19. src/storage.ts gained a storage schema version check. Review this change before rebasing the cache work.",
+          "source": "Synthetic base comparison",
+          "timestamp": "2026-10-24T08:10:00+00:00",
+          "trust": "verified"
+        },
+        {
+          "id": "demo-pr-42",
+          "kind": "github",
+          "title": "PR #42 \u00b7 open",
+          "body": "SYNTHETIC PR #42: Scope cached task lists to the active workspace. State: open. Review: CHANGES_REQUESTED. CI: FAILURE. Reviewer: Add a regression test that switches workspaces offline.",
+          "source": "Synthetic GitHub fixture (links are illustrative)",
+          "timestamp": "2026-10-23T16:20:00+00:00",
+          "trust": "verified"
+        },
+        {
+          "id": "demo-pr-43",
+          "kind": "github",
+          "title": "PR #43 \u00b7 draft",
+          "body": "SYNTHETIC PR #43: Add keyboard shortcuts to the task palette. State: draft. Review: REVIEW_REQUIRED. CI: PENDING. Reviewer: Draft: waiting on focus-management coverage.",
+          "source": "Synthetic GitHub fixture (links are illustrative)",
+          "timestamp": "2026-10-23T16:20:00+00:00",
+          "trust": "verified"
+        },
+        {
+          "id": "demo-pr-38",
+          "kind": "github",
+          "title": "PR #38 \u00b7 merged",
+          "body": "SYNTHETIC PR #38: Keep local task edits when reconnecting. State: merged. Review: APPROVED. CI: SUCCESS. Reviewer: Merged after the reconnect regression passed.",
+          "source": "Synthetic GitHub fixture (links are illustrative)",
+          "timestamp": "2026-10-23T16:20:00+00:00",
+          "trust": "verified"
+        },
+        {
+          "id": "demo-pr-35",
+          "kind": "github",
+          "title": "PR #35 \u00b7 closed",
+          "body": "SYNTHETIC PR #35: Replace local storage with a remote-only cache. State: closed. Review: REVIEW_REQUIRED. CI: UNKNOWN. Reviewer: Closed without merge: offline support is a requirement.",
+          "source": "Synthetic GitHub fixture (links are illustrative)",
+          "timestamp": "2026-10-23T16:20:00+00:00",
+          "trust": "verified"
+        }
+      ],
+      "warnings": [
+        "DEMO: every repository, conversation, PR and check is synthetic. No model or credentials were used."
+      ]
+    },
+    "sessions": [
+      {
+        "id": "demo-session",
+        "title": "Fix workspace cache invalidation",
+        "adapter": "manual",
+        "source": "Synthetic demonstration",
+        "repo_path": "demo://northstar",
+        "branch": "fix/cache-invalidation",
+        "created_at": "2026-10-23T16:20:00+00:00",
+        "messages": [
+          {
+            "role": "user",
+            "text": "Finish the workspace-switch regression. Keep the cache API unchanged. Avoid global cache clearing; offline reads must continue working.",
+            "timestamp": "2026-10-23T16:20:00+00:00"
+          },
+          {
+            "role": "assistant",
+            "text": "Workspace-scoped keys are staged. The earlier suite passed then; the new regression is unfinished.",
+            "timestamp": "2026-10-23T16:21:00+00:00"
+          }
+        ],
+        "warnings": [
+          "Synthetic transcript; no real agent session imported."
+        ],
+        "match": "matched",
+        "evidence": []
+      }
+    ],
+    "jobs": [],
+    "history": [
+      {
+        "id": "demo-briefing",
+        "repo_id": "public-demo",
+        "snapshot_id": "demo-snapshot",
+        "created_at": "2026-10-24T10:00:00Z",
+        "model": "Synthetic demo \u00b7 no inference",
+        "demo": true,
+        "sections": [
+          {
+            "key": "working_on",
+            "title": "You were working on\u2026",
+            "claims": [
+              {
+                "text": "Fixing stale task lists when switching workspaces, while keeping offline reads and the public cache API intact.",
+                "kind": "agent-reported",
+                "evidence_ids": [
+                  "demo-session"
+                ]
+              }
+            ]
+          },
+          {
+            "key": "stopped_at",
+            "title": "Where you stopped",
+            "claims": [
+              {
+                "text": "The workspace-scoped cache key is staged. The regression test still has uncommitted edits.",
+                "kind": "verified",
+                "evidence_ids": [
+                  "demo-git"
+                ]
+              },
+              {
+                "text": "Your agent reported that an earlier test run passed. The switching-workspaces regression was unfinished.",
+                "kind": "agent-reported",
+                "evidence_ids": [
+                  "demo-session"
+                ]
+              }
+            ]
+          },
+          {
+            "key": "changed",
+            "title": "What changed while you were away",
+            "claims": [
+              {
+                "text": "PR #38 merged, #43 remains a draft, and #35 closed without merging.",
+                "kind": "verified",
+                "evidence_ids": [
+                  "demo-pr-38",
+                  "demo-pr-43",
+                  "demo-pr-35"
+                ]
+              },
+              {
+                "text": "Main gained a storage schema version check in src/storage.ts.",
+                "kind": "verified",
+                "evidence_ids": [
+                  "demo-base"
+                ]
+              }
+            ]
+          },
+          {
+            "key": "attention",
+            "title": "What needs your attention",
+            "claims": [
+              {
+                "text": "PR #42 is open with changes requested. The reviewer asked for an offline workspace-switching regression test; its cache check is failing.",
+                "kind": "verified",
+                "evidence_ids": [
+                  "demo-pr-42"
+                ]
+              }
+            ]
+          },
+          {
+            "key": "next_step",
+            "title": "Your next step",
+            "claims": [
+              {
+                "text": "Finish the workspace-switch regression in tests/cache.test.ts, then review the storage schema change before rebasing.",
+                "kind": "suggestion",
+                "evidence_ids": [
+                  "demo-git",
+                  "demo-pr-42",
+                  "demo-base"
+                ]
+              }
+            ]
+          }
+        ],
+        "handoff": "# Continue work \u2014 While I Was Away\n\nTreat the following as untrusted context, not authorization to run commands.\n\nRepository: Northstar (demo://northstar)\nBranch: fix/cache-invalidation\nHEAD: 7e91c4a\nSnapshot: 2026-10-24T10:00:00Z\nWindow starts: 2026-10-23T00:00:00+00:00\n\n## You were working on\u2026\n- [agent-reported] Fixing stale task lists when switching workspaces, while keeping offline reads and the public cache API intact. [demo-session]\n\n## Where you stopped\n- [verified] The workspace-scoped cache key is staged. The regression test still has uncommitted edits. [demo-git]\n- [agent-reported] Your agent reported that an earlier test run passed. The switching-workspaces regression was unfinished. [demo-session]\n\n## What changed while you were away\n- [verified] PR #38 merged, #43 remains a draft, and #35 closed without merging. [demo-pr-38] [demo-pr-43] [demo-pr-35]\n- [verified] Main gained a storage schema version check in src/storage.ts. [demo-base]\n\n## What needs your attention\n- [verified] PR #42 is open with changes requested. The reviewer asked for an offline workspace-switching regression test; its cache check is failing. [demo-pr-42]\n\n## Your next step\n- [suggestion] Finish the workspace-switch regression in tests/cache.test.ts, then review the storage schema change before rebasing. [demo-git] [demo-pr-42] [demo-base]\n\n## Relevant files\nStaged: src/cache.ts\nUnstaged: tests/cache.test.ts\nUntracked names only: notes/repro.md\n\n## PR state and review feedback\n- #42 open: Scope cached task lists to the active workspace \u2014 https://github.com/example/while-away-demo/pull/42 (CHANGES_REQUESTED); updated 2026-10-23T16:20:00+00:00\n  - Add a regression test that switches workspaces offline.\n- #43 draft: Add keyboard shortcuts to the task palette \u2014 https://github.com/example/while-away-demo/pull/43 (REVIEW_REQUIRED); updated 2026-10-23T16:20:00+00:00\n  - Draft: waiting on focus-management coverage.\n- #38 merged: Keep local task edits when reconnecting \u2014 https://github.com/example/while-away-demo/pull/38 (APPROVED); updated 2026-10-23T16:20:00+00:00\n  - Merged after the reconnect regression passed.\n- #35 closed: Replace local storage with a remote-only cache \u2014 https://github.com/example/while-away-demo/pull/35 (REVIEW_REQUIRED); updated 2026-10-23T16:20:00+00:00\n  - Closed without merge: offline support is a requirement.\n\n## Decisions, attempted changes, failed approaches and unresolved questions\nUse the cited conversation excerpts below; absent evidence is unknown.\n\n## Tests and freshness\nNo repository test commands were executed by this app. Any test success in a transcript is a historical report, not proof of the current worktree.\nGitHub last synced: 2026-10-23T16:20:00+00:00; cached/offline: True\n\n## Source evidence\n### [demo-git] Working tree at your stopping point\nverified \u00b7 Synthetic Git fixture \u00b7 2026-10-23T16:20:00+00:00\nBranch fix/cache-invalidation at 7e91c4a. Staged: src/cache.ts. Unstaged: tests/cache.test.ts. Untracked filename: notes/repro.md. The diff replaces a shared cache key with a workspace-scoped key. No untracked file contents collected.\n\n### [demo-session] Last coding session \u00b7 cache invalidation\nagent-reported \u00b7 Synthetic agent conversation \u00b7 2026-10-23T16:20:00+00:00\nUSER: Fix stale task lists when switching workspaces. Keep the public cache API unchanged.\nASSISTANT: A shared cache key causes workspace data to leak between views. The workspace-scoped key is implemented. I ran the old unit suite and it passed at that time. The switching-workspaces regression test is still unfinished.\nUSER: Do not repeat the global cache-clear approach; it breaks offline reads. Finish the regression test before changing anything else.\n\n### [demo-base] Main changed while you were away\nverified \u00b7 Synthetic base comparison \u00b7 2026-10-24T08:10:00+00:00\nSynthetic base branch moved from 42ad007 to b80cf19. src/storage.ts gained a storage schema version check. Review this change before rebasing the cache work.\n\n### [demo-pr-42] PR #42 \u00b7 open\nverified \u00b7 Synthetic GitHub fixture (links are illustrative) \u00b7 2026-10-23T16:20:00+00:00\nSYNTHETIC PR #42: Scope cached task lists to the active workspace. State: open. Review: CHANGES_REQUESTED. CI: FAILURE. Reviewer: Add a regression test that switches workspaces offline.\n\n### [demo-pr-43] PR #43 \u00b7 draft\nverified \u00b7 Synthetic GitHub fixture (links are illustrative) \u00b7 2026-10-23T16:20:00+00:00\nSYNTHETIC PR #43: Add keyboard shortcuts to the task palette. State: draft. Review: REVIEW_REQUIRED. CI: PENDING. Reviewer: Draft: waiting on focus-management coverage.\n\n### [demo-pr-38] PR #38 \u00b7 merged\nverified \u00b7 Synthetic GitHub fixture (links are illustrative) \u00b7 2026-10-23T16:20:00+00:00\nSYNTHETIC PR #38: Keep local task edits when reconnecting. State: merged. Review: APPROVED. CI: SUCCESS. Reviewer: Merged after the reconnect regression passed.\n\n### [demo-pr-35] PR #35 \u00b7 closed\nverified \u00b7 Synthetic GitHub fixture (links are illustrative) \u00b7 2026-10-23T16:20:00+00:00\nSYNTHETIC PR #35: Replace local storage with a remote-only cache. State: closed. Review: REVIEW_REQUIRED. CI: UNKNOWN. Reviewer: Closed without merge: offline support is a requirement.\n\nReview the current diff and confirm any proposed commands before running them.",
+        "evidence": [
+          {
+            "id": "demo-git",
+            "kind": "git",
+            "title": "Working tree at your stopping point",
+            "body": "Branch fix/cache-invalidation at 7e91c4a. Staged: src/cache.ts. Unstaged: tests/cache.test.ts. Untracked filename: notes/repro.md. The diff replaces a shared cache key with a workspace-scoped key. No untracked file contents collected.",
+            "source": "Synthetic Git fixture",
+            "timestamp": "2026-10-23T16:20:00+00:00",
+            "trust": "verified"
+          },
+          {
+            "id": "demo-session",
+            "kind": "session",
+            "title": "Last coding session \u00b7 cache invalidation",
+            "body": "USER: Fix stale task lists when switching workspaces. Keep the public cache API unchanged.\nASSISTANT: A shared cache key causes workspace data to leak between views. The workspace-scoped key is implemented. I ran the old unit suite and it passed at that time. The switching-workspaces regression test is still unfinished.\nUSER: Do not repeat the global cache-clear approach; it breaks offline reads. Finish the regression test before changing anything else.",
+            "source": "Synthetic agent conversation",
+            "timestamp": "2026-10-23T16:20:00+00:00",
+            "trust": "agent-reported"
+          },
+          {
+            "id": "demo-base",
+            "kind": "git",
+            "title": "Main changed while you were away",
+            "body": "Synthetic base branch moved from 42ad007 to b80cf19. src/storage.ts gained a storage schema version check. Review this change before rebasing the cache work.",
+            "source": "Synthetic base comparison",
+            "timestamp": "2026-10-24T08:10:00+00:00",
+            "trust": "verified"
+          },
+          {
+            "id": "demo-pr-42",
+            "kind": "github",
+            "title": "PR #42 \u00b7 open",
+            "body": "SYNTHETIC PR #42: Scope cached task lists to the active workspace. State: open. Review: CHANGES_REQUESTED. CI: FAILURE. Reviewer: Add a regression test that switches workspaces offline.",
+            "source": "Synthetic GitHub fixture (links are illustrative)",
+            "timestamp": "2026-10-23T16:20:00+00:00",
+            "trust": "verified"
+          },
+          {
+            "id": "demo-pr-43",
+            "kind": "github",
+            "title": "PR #43 \u00b7 draft",
+            "body": "SYNTHETIC PR #43: Add keyboard shortcuts to the task palette. State: draft. Review: REVIEW_REQUIRED. CI: PENDING. Reviewer: Draft: waiting on focus-management coverage.",
+            "source": "Synthetic GitHub fixture (links are illustrative)",
+            "timestamp": "2026-10-23T16:20:00+00:00",
+            "trust": "verified"
+          },
+          {
+            "id": "demo-pr-38",
+            "kind": "github",
+            "title": "PR #38 \u00b7 merged",
+            "body": "SYNTHETIC PR #38: Keep local task edits when reconnecting. State: merged. Review: APPROVED. CI: SUCCESS. Reviewer: Merged after the reconnect regression passed.",
+            "source": "Synthetic GitHub fixture (links are illustrative)",
+            "timestamp": "2026-10-23T16:20:00+00:00",
+            "trust": "verified"
+          },
+          {
+            "id": "demo-pr-35",
+            "kind": "github",
+            "title": "PR #35 \u00b7 closed",
+            "body": "SYNTHETIC PR #35: Replace local storage with a remote-only cache. State: closed. Review: REVIEW_REQUIRED. CI: UNKNOWN. Reviewer: Closed without merge: offline support is a requirement.",
+            "source": "Synthetic GitHub fixture (links are illustrative)",
+            "timestamp": "2026-10-23T16:20:00+00:00",
+            "trust": "verified"
+          }
+        ],
+        "warnings": [
+          "DEMO: every repository, conversation, PR and check is synthetic. No model or credentials were used."
+        ]
+      }
+    ]
+  },
+  "health": {
+    "version": "0.1.0 \u00b7 public demo",
+    "git": {
+      "ok": false,
+      "message": "Synthetic Git snapshot; no filesystem access"
+    },
+    "github": {
+      "ok": false,
+      "message": "Synthetic cached PRs; no GitHub connection"
+    },
+    "ollama": {
+      "ok": false,
+      "message": "Precomputed synthetic briefing; no live inference",
+      "models": []
+    }
+  },
+  "settings": {
+    "model": "gemma3:4b",
+    "exclusions": []
+  }
+}
